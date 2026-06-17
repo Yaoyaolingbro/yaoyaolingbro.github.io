@@ -197,7 +197,7 @@ education:
     location: Hangzhou, China
     details:
       - CAD&CG National Key Laboratory
-      - Advisors: Prof. Chunhua Shen and Prof. Hao Chen
+      - "Advisors: Prof. Chunhua Shen and Prof. Hao Chen"
   - institution: Zhejiang University
     degree: B.E. in Computer Science
     period: 2022.09 - 2026.06

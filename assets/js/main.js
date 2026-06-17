@@ -36,8 +36,20 @@
   function renderLinks(links) {
     return Object.entries(links || {})
       .filter(([, url]) => Boolean(url))
-      .map(([label, url]) => `<a class="pill-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`)
+      .map(([label, url]) => `<a class="pill-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(formatLabel(label))}</a>`)
       .join('');
+  }
+
+  function formatLabel(label) {
+    const labels = {
+      paper: 'Paper',
+      code: 'Code',
+      project: 'Project',
+      demo: 'Demo',
+      video: 'Video',
+      bibtex: 'BibTeX'
+    };
+    return labels[text(label).toLowerCase()] || text(label);
   }
 
   function renderProfileLinks(profile) {
