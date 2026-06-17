@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">NoTVLA publication thumbnail</title>
+  <desc id="desc">Abstract robot manipulation trajectory research thumbnail</desc>
+  <rect width="640" height="360" fill="#f7f9fb"/>
+  <rect x="48" y="50" width="544" height="260" rx="24" fill="#ffffff" stroke="#d9e1ec"/>
+  <path d="M142 238c78-112 170-136 276-72 31 19 58 40 82 64" fill="none" stroke="#c9d4e4" stroke-width="18" stroke-linecap="round"/>
+  <path d="M160 226c76-74 154-88 236-42 34 19 63 40 86 64" fill="none" stroke="#2f6f9f" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="160" cy="226" r="16" fill="#24426f"/>
+  <circle cx="482" cy="248" r="16" fill="#3f8b72"/>
+  <rect x="98" y="92" width="98" height="66" rx="12" fill="#eaf1fb"/>
+  <rect x="444" y="92" width="98" height="66" rx="12" fill="#e7f2ef"/>
+  <path d="M254 105h132" stroke="#9aa8bb" stroke-width="9" stroke-linecap="round"/>
+  <path d="M254 132h92" stroke="#9aa8bb" stroke-width="9" stroke-linecap="round"/>
+  <text x="95" y="302" fill="#24426f" font-family="Arial, sans-serif" font-size="22" font-weight="700">Dense Action Trajectories for Manipulation</text>
+</svg>

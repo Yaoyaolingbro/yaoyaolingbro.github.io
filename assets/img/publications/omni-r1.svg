@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Omni-R1 publication thumbnail</title>
+  <desc id="desc">Abstract omnimodal reinforcement learning research thumbnail</desc>
+  <rect width="640" height="360" fill="#f7f9fb"/>
+  <rect x="48" y="42" width="544" height="276" rx="24" fill="#ffffff" stroke="#d9e1ec"/>
+  <circle cx="168" cy="178" r="70" fill="#e8f0fb" stroke="#bdd0ea" stroke-width="3"/>
+  <circle cx="472" cy="178" r="70" fill="#e7f2ef" stroke="#bddbd2" stroke-width="3"/>
+  <rect x="272" y="116" width="96" height="124" rx="18" fill="#1f4f82"/>
+  <path d="M235 166h36M235 190h36M369 166h36M369 190h36" stroke="#7b8798" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="142" cy="156" r="14" fill="#2b66a3"/>
+  <rect x="165" y="142" width="38" height="28" rx="6" fill="#83a8d5"/>
+  <path d="M127 206h84" stroke="#2b66a3" stroke-width="10" stroke-linecap="round"/>
+  <path d="M441 143h62l-31 54z" fill="#4c987f"/>
+  <circle cx="472" cy="212" r="20" fill="#9dcbb9"/>
+  <text x="292" y="170" fill="#ffffff" font-family="Arial, sans-serif" font-size="24" font-weight="700">RL</text>
+  <text x="283" y="203" fill="#d7e8ff" font-family="Arial, sans-serif" font-size="16">Omni</text>
+  <text x="72" y="300" fill="#24426f" font-family="Arial, sans-serif" font-size="22" font-weight="700">Two-System Omnimodal Reasoning</text>
+</svg>
