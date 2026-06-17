@@ -1,9 +1,13 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import vm from "node:vm";
 
 const read = (path) => fs.readFileSync(path, "utf8");
 
-const yaml = await import("../assets/vendor/js-yaml.min.js");
+const yamlContext = {};
+vm.createContext(yamlContext);
+vm.runInContext(read("assets/vendor/js-yaml.min.js"), yamlContext);
+const yaml = yamlContext.jsyaml;
 const site = yaml.load(read("data/site.yml"));
 
 assert.equal(site.profile.name, "Zongze Du");
