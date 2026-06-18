@@ -271,7 +271,8 @@ img {
 }
 
 .publication-card {
-  display: block;
+  grid-template-columns: 280px minmax(0, 1fr);
+  align-items: start;
 }
 
 .publication-card:first-of-type,
@@ -295,9 +296,8 @@ img {
 }
 
 .publication-card img {
-  width: 760px;
-  height: 428px;
-  max-width: 100%;
+  width: 280px;
+  height: 158px;
   object-fit: cover;
   background: var(--surface-soft);
   border: 1px solid var(--line);
@@ -305,7 +305,7 @@ img {
 }
 
 .publication-card .card-body {
-  margin-top: 18px;
+  margin-top: 0;
 }
 
 .card-body {
@@ -438,9 +438,13 @@ img {
     grid-template-columns: 160px minmax(0, 1fr);
   }
 
+  .publication-card {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+
   .publication-card img {
-    width: 620px;
-    height: 349px;
+    width: 240px;
+    height: 135px;
   }
 
   .timeline-item {
@@ -545,6 +549,7 @@ img {
   .publication-card img {
     width: 688px;
     height: 387px;
+    max-width: 100%;
     max-height: none;
   }
 

@@ -230,13 +230,20 @@
   function enableSmoothAnchors() {
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
       link.addEventListener('click', (event) => {
-        const target = document.querySelector(link.getAttribute('href'));
-        if (!target) return;
+        const hash = link.getAttribute('href');
+        if (!document.querySelector(hash)) return;
         event.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        history.pushState(null, '', link.getAttribute('href'));
+        history.pushState(null, '', hash);
+        scrollToCurrentHash('smooth');
       });
     });
+  }
+
+  function scrollToCurrentHash(behavior = 'auto') {
+    if (!window.location.hash) return;
+    const target = document.querySelector(window.location.hash);
+    if (!target) return;
+    target.scrollIntoView({ behavior, block: 'start' });
   }
 
   async function init() {
@@ -245,6 +252,7 @@
       const data = await loadSiteData();
       app.innerHTML = renderSite(data);
       enableSmoothAnchors();
+      requestAnimationFrame(() => scrollToCurrentHash());
     } catch (error) {
       console.error(error);
       app.className = 'error-shell';
