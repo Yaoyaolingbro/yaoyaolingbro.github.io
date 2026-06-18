@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 428" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic Evolution with Adaptive OCR Memory thumbnail</title>
+  <desc id="desc">Abstract thumbnail showing an agent editing OCR memory into visual panels</desc>
+  <rect width="760" height="428" fill="#f7f9fb"/>
+  <rect x="44" y="42" width="672" height="344" rx="22" fill="#ffffff" stroke="#d9e1ec" stroke-width="2"/>
+  <rect x="82" y="82" width="184" height="228" rx="16" fill="#eaf1fb" stroke="#bed1e8" stroke-width="2"/>
+  <rect x="288" y="82" width="184" height="228" rx="16" fill="#eef7f3" stroke="#c2ddd2" stroke-width="2"/>
+  <rect x="494" y="82" width="184" height="228" rx="16" fill="#f3e7df" stroke="#decabc" stroke-width="2"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M118 126h112M118 158h82M118 190h124M118 222h70" stroke="#7892b5" stroke-width="10"/>
+    <path d="M324 128h112M324 160h70M324 192h120M324 224h84" stroke="#5d9a84" stroke-width="10"/>
+    <path d="M530 128h112M530 160h76M530 192h122M530 224h64" stroke="#b78266" stroke-width="10"/>
+  </g>
+  <path d="M266 194h22M472 194h22" stroke="#728197" stroke-width="9" stroke-linecap="round"/>
+  <path d="M260 194l26-22M260 194l26 22M466 194l26-22M466 194l26 22" fill="none" stroke="#728197" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="174" cy="292" r="22" fill="#7fa4d3"/>
+  <circle cx="380" cy="292" r="22" fill="#65a88e"/>
+  <circle cx="586" cy="292" r="22" fill="#c79273"/>
+  <path d="M156 292h36M174 274v36M362 292h36M380 274v36M568 292h36M586 274v36" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+  <rect x="88" y="342" width="584" height="22" rx="11" fill="#edf2f7"/>
+  <rect x="88" y="342" width="410" height="22" rx="11" fill="#255f9f"/>
+  <circle cx="548" cy="353" r="30" fill="#ffffff" stroke="#d9e1ec" stroke-width="2"/>
+  <path d="M532 353h32M548 337v32" stroke="#255f9f" stroke-width="7" stroke-linecap="round"/>
+</svg>

@@ -35,6 +35,24 @@ news:
     text: Represented ZJU at ISC25 Student Cluster Competition in Hamburg.
 
 publications:
+  - title: "Agentic Evolution with Adaptive OCR Memory"
+    authors:
+      - Zongze Du
+      - Ke Liu
+      - Linhao Zhong
+      - Jiuhe Shu
+      - Muzhi Zhu
+      - Chenchen Jing
+      - Hao Chen
+      - Yuling Xi
+      - Chunhua Shen
+    highlight_author: Zongze Du
+    venue: ACL ARR 2026 May Submission
+    image: assets/img/publications/agentic-ocr-memory.svg
+    image_alt: Abstract agentic OCR memory research thumbnail
+    summary: An agentic evolution framework for adaptive OCR memory, where an assistant edits visual memory artifacts and verifies improvements without updating the task model.
+    note: "Submitted 2026.05.23; revised 2026.06.17"
+    links: {}
   - title: "Preserving Source Video Realism: High-Fidelity Face Swapping for Cinematic Quality"
     authors:
       - Zekai Luo

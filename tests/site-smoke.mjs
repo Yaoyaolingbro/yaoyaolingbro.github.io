@@ -16,6 +16,8 @@ assert.ok(site.resume.english.endsWith("Zongze_Du_CV.pdf"));
 assert.ok(site.resume.chinese.endsWith("Zongze_Du_CV_zh.pdf"));
 assert.ok(site.publications.length >= 2);
 assert.ok(site.projects.length >= 2);
+assert.equal(site.publications[0].title, "Agentic Evolution with Adaptive OCR Memory");
+assert.equal(site.publications[0].image, "assets/img/publications/agentic-ocr-memory.svg");
 
 const html = read("index.html");
 for (const id of ["about", "publications", "projects", "experience", "education", "honors", "cv"]) {
@@ -33,5 +35,7 @@ const css = read("assets/css/styles.css");
 assert.ok(css.includes("grid-template-columns: minmax(220px, 280px) minmax(0, 1fr)"));
 assert.ok(css.includes("@media (max-width: 760px)"));
 assert.ok(css.includes("overflow-x: auto"));
+assert.ok(css.includes("width: 760px"));
+assert.ok(css.includes("height: 428px"));
 
 console.log("site smoke checks passed");
