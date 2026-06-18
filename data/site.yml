@@ -27,8 +27,6 @@ about:
     - High-Performance Computing
 
 news:
-  - date: 2026.01
-    text: FrontierX AURA companion robot was showcased at CES 2026.
   - date: 2025.12
     text: Omni-R1 was accepted to NeurIPS 2025.
   - date: 2025.06
@@ -48,8 +46,8 @@ publications:
       - Chunhua Shen
     highlight_author: Zongze Du
     venue: ACL ARR 2026 May Submission
-    image: assets/img/publications/agentic-ocr-memory.svg
-    image_alt: Abstract agentic OCR memory research thumbnail
+    image: assets/img/publications/agentic-ocr-memory.png
+    image_alt: Agentic Evolution with Adaptive OCR Memory paper figure
     summary: An agentic evolution framework for adaptive OCR memory, where an assistant edits visual memory artifacts and verifies improvements without updating the task model.
     note: "Submitted 2026.05.23; revised 2026.06.17"
     links: {}
@@ -67,8 +65,8 @@ publications:
       - Chunhua Shen
     highlight_author: Zongze Du
     venue: CVPR 2026
-    image: assets/img/publications/livingswap.svg
-    image_alt: Abstract video face swapping research thumbnail
+    image: assets/img/publications/livingswap.png
+    image_alt: LivingSwap paper figure
     summary: A high-fidelity face swapping pipeline focused on preserving source video realism for cinematic-quality generation.
     links: {}
   - title: "Omni-R1: Reinforcement Learning for Omnimodal Reasoning via Two-System Collaboration"
@@ -84,8 +82,8 @@ publications:
       - Chunhua Shen
     highlight_author: Zongze Du
     venue: NeurIPS 2025
-    image: assets/img/publications/omni-r1.svg
-    image_alt: Abstract omnimodal reasoning research thumbnail
+    image: assets/img/publications/omni-r1.png
+    image_alt: Omni-R1 paper figure
     summary: A reinforcement learning framework for omnimodal reasoning built around two-system collaboration.
     note: "* Equal contribution"
     links: {}
@@ -105,8 +103,8 @@ publications:
       - Chunhua Shen
     highlight_author: Zongze Du
     venue: ICML 2026
-    image: assets/img/publications/active-o3.svg
-    image_alt: Abstract active perception research thumbnail
+    image: assets/img/publications/active-o3.png
+    image_alt: ACTIVE-O3 paper figure
     summary: A reinforcement learning approach that encourages multimodal models to actively perceive and gather visual evidence.
     links: {}
   - title: "Metric-Bench: Exploring In-context Spatial Metric Reasoning in VLMs for Indoor Scenes"
@@ -126,27 +124,9 @@ publications:
       - Chunhua Shen
     highlight_author: Zongze Du
     venue: ECCV 2026 Under Review
-    image: assets/img/publications/metric-bench.svg
-    image_alt: Abstract spatial metric reasoning research thumbnail
+    image: assets/img/publications/metric-bench.png
+    image_alt: Metric-Bench paper figure
     summary: A benchmark for testing how vision-language models reason about indoor spatial metrics from context.
-    links: {}
-  - title: "GAE: Unleashing Physical Potential of VLM with Generalizable Action Expert"
-    authors:
-      - Mingyu Liu
-      - Zheng Huang
-      - Xiaoyi Lin
-      - Muzhi Zhu
-      - Canyu Zhao
-      - Zongze Du
-      - Yating Wang
-      - Haoyi Zhu
-      - Hao Chen
-      - Chunhua Shen
-    highlight_author: Zongze Du
-    venue: Preprint
-    image: assets/img/publications/gae.svg
-    image_alt: Abstract generalizable action expert research thumbnail
-    summary: A generalizable action expert designed to strengthen physical reasoning and action capability in VLMs.
     links: {}
   - title: "NoTVLA: Narrowing of Dense Action Trajectories for Generalizable Robot Manipulation"
     authors:
@@ -163,32 +143,26 @@ publications:
       - Chunhua Shen
     highlight_author: Zongze Du
     venue: Preprint
-    image: assets/img/publications/notvla.svg
-    image_alt: Abstract robot manipulation trajectory research thumbnail
+    image: assets/img/publications/notvla.png
+    image_alt: NoTVLA paper figure
     summary: A robot manipulation project exploring how to narrow dense action trajectories for better generalization.
     links: {}
 
 projects:
-  - title: FrontierX AURA & VEX Companion Robots
-    period: 2025.09 - 2026.01
-    image: assets/img/projects/frontierx.svg
-    image_alt: Abstract spherical companion robot thumbnail
-    summary: Led perception and algorithm work for companion robots under embedded hardware constraints, including person and pet tracking, emotion cues, and autonomous following.
-    links:
-      project: https://tech.ifeng.com/c/8pfR9nQ6ADv
   - title: AIRA Research Community and Learning Platform
     period: 2023.10 - Present
-    image: assets/img/projects/aira.svg
-    image_alt: Abstract AI research community thumbnail
+    image: assets/img/projects/aira.png
+    image_alt: AIRA project logo
     summary: Founded AIRA at Zhejiang University, built a student AI research community, supported industry partnerships, and launched zjuaira.com for collaborative coding and AI learning.
     links:
       project: https://zjuaira.com
   - title: High-Performance Computing Optimization
     period: 2024.01 - 2025.06
-    image: assets/img/projects/hpc.svg
-    image_alt: Abstract high-performance computing thumbnail
+    image: assets/img/projects/zjusct-logo.png
+    image_alt: ZJUSCT logo
     summary: Worked on HPL, HPCG, AlphaFold CPU inference, and C++ climate prediction optimization across ASC 2024, ASC 2025, and ISC25.
-    links: {}
+    links:
+      project: https://www.zjusct.io/
 
 experience:
   - organization: ZJU CAD&CG Lab

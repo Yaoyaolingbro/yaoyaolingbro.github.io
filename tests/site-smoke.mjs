@@ -17,7 +17,24 @@ assert.ok(site.resume.chinese.endsWith("Zongze_Du_CV_zh.pdf"));
 assert.ok(site.publications.length >= 2);
 assert.ok(site.projects.length >= 2);
 assert.equal(site.publications[0].title, "Agentic Evolution with Adaptive OCR Memory");
-assert.equal(site.publications[0].image, "assets/img/publications/agentic-ocr-memory.svg");
+assert.equal(site.publications[0].image, "assets/img/publications/agentic-ocr-memory.png");
+assert.ok(!site.publications.some((publication) => publication.title.includes("GAE:")));
+assert.ok(site.publications.every((publication) => publication.image.endsWith(".png")));
+assert.ok(!site.news.some((item) => item.text.includes("FrontierX")));
+assert.ok(!site.projects.some((project) => project.title.includes("FrontierX")));
+assert.equal(
+  site.projects.find((project) => project.title.includes("AIRA")).image,
+  "assets/img/projects/aira.png"
+);
+assert.equal(
+  site.projects.find((project) => project.title.includes("High-Performance Computing")).image,
+  "assets/img/projects/zjusct-logo.png"
+);
+assert.ok(fs.existsSync("assets/img/projects/zjusct-logo.png"));
+for (const dir of ["assets/img/publications", "assets/img/projects"]) {
+  const svgFiles = fs.readdirSync(dir).filter((file) => file.endsWith(".svg"));
+  assert.deepEqual(svgFiles, [], `${dir} should not contain SVG files`);
+}
 
 const html = read("index.html");
 for (const id of ["about", "publications", "projects", "experience", "education", "honors", "cv"]) {
@@ -39,5 +56,6 @@ assert.ok(css.includes("overflow-x: auto"));
 assert.ok(css.includes("grid-template-columns: 280px minmax(0, 1fr)"));
 assert.ok(css.includes("width: 280px"));
 assert.ok(css.includes("height: 158px"));
+assert.ok(css.includes("object-fit: contain"));
 
 console.log("site smoke checks passed");
