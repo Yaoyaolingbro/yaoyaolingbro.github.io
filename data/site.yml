@@ -4,7 +4,7 @@ profile:
   photo: assets/img/profile.jpg
   photo_alt: Portrait of Zongze Du
   location: Hangzhou, China
-  email: 3220105581@zju.edu.cn
+  email: Duzz816@163.com
   website: https://yaoyaolingbro.github.io
   links:
     - label: GitHub
@@ -35,8 +35,8 @@ news:
 publications:
   - title: "Agentic Evolution with Adaptive OCR Memory"
     authors:
-      - Zongze Du
-      - Ke Liu
+      - Zongze Du*
+      - Ke Liu*
       - Linhao Zhong
       - Jiuhe Shu
       - Muzhi Zhu
@@ -49,7 +49,7 @@ publications:
     image: assets/img/publications/agentic-ocr-memory.png
     image_alt: Agentic Evolution with Adaptive OCR Memory paper figure
     summary: An agentic evolution framework for adaptive OCR memory, where an assistant edits visual memory artifacts and verifies improvements without updating the task model.
-    note: "Submitted 2026.05.23; revised 2026.06.17"
+    note: "* Equal contribution"
     links: {}
   - title: "Preserving Source Video Realism: High-Fidelity Face Swapping for Cinematic Quality"
     authors:
@@ -168,15 +168,19 @@ education:
     degree: Ph.D. in Computer Science and Technology
     period: 2026 - Present
     location: Hangzhou, China
+    image: assets/img/institution/zju-cs.png
+    image_alt: Zhejiang University College of Computer Science and Technology
     details:
       - CAD&CG National Key Laboratory
       - "Advisors: Prof. Chunhua Shen and Prof. Hao Chen"
   - institution: Zhejiang University
-    degree: B.E. in Computer Science
+    degree: B.E. in Computer Science, Chu Kochen Honors College Mixed Class
     period: 2022.09 - 2026.06
     location: Hangzhou, China
+    image: assets/img/institution/ckc.png
+    image_alt: Chu Kochen Honors College
     details:
-      - Chu Kochen Honors College
+      - Chu Kochen Honors College Mixed Class
 
 honors:
   - ZJU First-Class Scholarship, 2022-2023 and 2023-2024

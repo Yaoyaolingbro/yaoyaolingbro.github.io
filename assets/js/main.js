@@ -195,17 +195,20 @@
         .map((detail) => `<li>${escapeHtml(detail)}</li>`)
         .join('');
       return `
-        <article class="timeline-item compact">
-          <div>
+        <article class="education-card">
+          <div class="education-logo-wrap">
+            <img class="education-logo" src="${escapeHtml(entry.image)}" alt="${escapeHtml(entry.image_alt || entry.institution)}">
+          </div>
+          <div class="education-body">
             <p class="venue">${escapeHtml(entry.period)}</p>
             <h3>${escapeHtml(entry.institution)}</h3>
             <p class="meta">${escapeHtml(entry.degree)} · ${escapeHtml(entry.location)}</p>
+            <ul>${details}</ul>
           </div>
-          <ul>${details}</ul>
         </article>
       `;
     }).join('');
-    return renderSection('education', 'Education', items);
+    return renderSection('education', 'Education', `<div class="education-list">${items}</div>`);
   }
 
   function renderHonors(honors) {
