@@ -103,7 +103,7 @@
     return renderSection('about', 'About', `<div class="prose">${paragraphs}</div>`);
   }
 
-  function renderNews(news) {
+  function renderNews(news, extraClass = '') {
     if (!news || news.length === 0) return '';
     const items = news.map((item) => `
       <li>
@@ -111,7 +111,23 @@
         <span>${escapeHtml(item.text)}</span>
       </li>
     `).join('');
-    return renderSection('news', 'News', `<ul class="news-list">${items}</ul>`);
+    return renderSection('news', 'News', `<ul class="news-list">${items}</ul>`, extraClass);
+  }
+
+  function renderNewsAside(news) {
+    if (!news || news.length === 0) return '';
+    const items = news.map((item) => `
+      <li>
+        <time>${escapeHtml(item.date)}</time>
+        <span>${escapeHtml(item.text)}</span>
+      </li>
+    `).join('');
+    return `
+      <aside class="desktop-news" aria-label="News">
+        <h2>News</h2>
+        <ul class="side-news-list">${items}</ul>
+      </aside>
+    `;
   }
 
   function renderPublications(publications) {
@@ -214,16 +230,19 @@
   function renderSite(data) {
     return `
       ${renderProfile(data)}
-      <main class="main-content">
-        ${renderAbout(data)}
-        ${renderNews(data.news)}
-        ${renderPublications(data.publications)}
-        ${renderProjects(data.projects)}
-        ${renderExperience(data.experience)}
-        ${renderEducation(data.education)}
-        ${renderHonors(data.honors)}
-        ${renderCv(data.resume)}
-      </main>
+      <div class="content-layout">
+        <main class="main-content">
+          ${renderAbout(data)}
+          ${renderNews(data.news, 'mobile-news')}
+          ${renderPublications(data.publications)}
+          ${renderProjects(data.projects)}
+          ${renderExperience(data.experience)}
+          ${renderEducation(data.education)}
+          ${renderHonors(data.honors)}
+          ${renderCv(data.resume)}
+        </main>
+        ${renderNewsAside(data.news)}
+      </div>
     `;
   }
 
