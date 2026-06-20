@@ -123,29 +123,10 @@ publications:
       - Hao Chen
       - Chunhua Shen
     highlight_author: Zongze Du
-    venue: ECCV 2026 Under Review
+    venue: ECCV 2026
     image: assets/img/publications/metric-bench.png
     image_alt: Metric-Bench paper figure
     summary: A benchmark for testing how vision-language models reason about indoor spatial metrics from context.
-    links: {}
-  - title: "NoTVLA: Narrowing of Dense Action Trajectories for Generalizable Robot Manipulation"
-    authors:
-      - Zheng Huang
-      - Mingyu Liu
-      - Xiaoyi Lin
-      - Muzhi Zhu
-      - Canyu Zhao
-      - Zongze Du
-      - Xiaoman Li
-      - Yiduo Jia
-      - Hao Zhong
-      - Hao Chen
-      - Chunhua Shen
-    highlight_author: Zongze Du
-    venue: Preprint
-    image: assets/img/publications/notvla.png
-    image_alt: NoTVLA paper figure
-    summary: A robot manipulation project exploring how to narrow dense action trajectories for better generalization.
     links: {}
 
 projects:

@@ -19,7 +19,12 @@ assert.ok(site.projects.length >= 2);
 assert.equal(site.publications[0].title, "Agentic Evolution with Adaptive OCR Memory");
 assert.equal(site.publications[0].image, "assets/img/publications/agentic-ocr-memory.png");
 assert.ok(!site.publications.some((publication) => publication.title.includes("GAE:")));
+assert.ok(!site.publications.some((publication) => publication.title.includes("NoTVLA")));
 assert.ok(site.publications.every((publication) => publication.image.endsWith(".png")));
+assert.equal(
+  site.publications.find((publication) => publication.title.includes("Metric-Bench")).venue,
+  "ECCV 2026"
+);
 assert.ok(!site.news.some((item) => item.text.includes("FrontierX")));
 assert.ok(!site.projects.some((project) => project.title.includes("FrontierX")));
 assert.equal(
