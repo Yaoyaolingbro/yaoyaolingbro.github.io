@@ -21,6 +21,9 @@ about:
   paragraphs:
     - I am an incoming PhD student at Zhejiang University CAD&CG Lab, advised by Prof. Chunhua Shen and Prof. Hao Chen. My work sits at the intersection of multimodal reasoning, spatial intelligence.
     - Beyond research, I founded AIRA at Zhejiang University and work on high-performance profiling and optimization at ZJUSCT. I am interested in turning frontier AI research into real systems, tools, and industry-facing products.
+  links:
+    "Prof. Chunhua Shen": https://cshen.github.io/
+    "Prof. Hao Chen": https://stan-haochen.github.io/
   tags:
     - Multimodal Reasoning
     - Physical AI
@@ -78,9 +81,9 @@ publications:
     image_alt: LivingSwap paper figure
     summary: A high-fidelity face swapping pipeline focused on preserving source video realism for cinematic-quality generation.
     links:
-      paper: ""
+      paper: "https://arxiv.org/pdf/2512.07951"
       code: ""
-      project: ""
+      project: "https://aim-uofa.github.io/LivingSwap/"
   - title: "Omni-R1: Reinforcement Learning for Omnimodal Reasoning via Two-System Collaboration"
     authors:
       - Hao Zhong*
@@ -99,9 +102,9 @@ publications:
     summary: A reinforcement learning framework for omnimodal reasoning built around two-system collaboration.
     note: "* Equal contribution"
     links:
-      paper: ""
-      code: ""
-      project: ""
+      paper: "https://arxiv.org/pdf/2505.20256"
+      code: "https://github.com/aim-uofa/omni-r1"
+      project: "https://aim-uofa.github.io/OmniR1/"
   - title: "ACTIVE-O3: Empowering MLLMs with Active Perception via Pure Reinforcement Learning"
     authors:
       - Muzhi Zhu
@@ -122,9 +125,9 @@ publications:
     image_alt: ACTIVE-O3 paper figure
     summary: A reinforcement learning approach that encourages multimodal models to actively perceive and gather visual evidence.
     links:
-      paper: ""
-      code: ""
-      project: ""
+      paper: "https://arxiv.org/pdf/2505.21457"
+      code: "https://github.com/aim-uofa/Active-o3"
+      project: "https://aim-uofa.github.io/ACTIVE-o3/"
   - title: "Metric-Bench: Exploring In-context Spatial Metric Reasoning in VLMs for Indoor Scenes"
     authors:
       - Yuling Xi
@@ -193,31 +196,39 @@ honors:
   - ISC Student Cluster Competition Honor Certificate, 2025
 
 collaborators:
-  - name: Chunhua Shen
-    note: Advisor
-  - name: Hao Chen
-    note: Advisor
   - name: Muzhi Zhu
     note: Multimodal reasoning
+    url: https://z-mu-z.github.io/
   - name: Hao Zhong
     note: Omnimodal reasoning
+    url: ""
   - name: Canyu Zhao
     note: Active perception
+    url: https://volcverse.vercel.app/
   - name: Mingyu Liu
     note: Embodied AI
+    url: https://mingyulau.github.io/
   - name: Zheng Huang
     note: Robot learning
+    url: ""
   - name: Ke Liu
     note: Agent memory
+    url: https://zjukeliu.github.io/
   - name: Linhao Zhong
     note: Agent memory
+    url: ""
   - name: Jiuhe Shu
     note: Agent memory
+    url: ""
   - name: Yuling Xi
     note: Spatial reasoning
+    url: ""
   - name: Chenchen Jing
     note: Video generation
+    url: https://jingchenchen.github.io/
   - name: Zekai Luo
     note: Face swapping
+    url: ""
   - name: Wen Wang
     note: Video generation
+    url: https://encounter1997.github.io/

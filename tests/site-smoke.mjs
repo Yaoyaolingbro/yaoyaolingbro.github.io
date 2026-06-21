@@ -17,6 +17,8 @@ assert.equal(site.profile.name, "Zongze Du");
 assert.ok(site.profile.headline.length > 0);
 assert.ok(!read("data/site.yml").includes("core CUDA programmer"));
 assert.match(site.about.paragraphs.join(" "), /high-performance profiling and optimization/);
+assert.equal(site.about.links["Prof. Chunhua Shen"], "https://cshen.github.io/");
+assert.equal(site.about.links["Prof. Hao Chen"], "https://stan-haochen.github.io/");
 assert.ok(scholar.metrics.citations >= 0);
 assert.ok(scholar.metrics.h_index >= 0);
 assert.ok(scholar.metrics.i10_index >= 0);
@@ -29,6 +31,14 @@ assert.ok(site.publications.length >= 2);
 assert.ok(site.experience.length >= 2);
 assert.ok(!Object.prototype.hasOwnProperty.call(site, "projects"));
 assert.ok(site.collaborators.length >= 6);
+assert.equal(
+  site.collaborators.find((collaborator) => collaborator.name === "Muzhi Zhu").url,
+  "https://z-mu-z.github.io/"
+);
+assert.equal(
+  site.collaborators.find((collaborator) => collaborator.name === "Hao Zhong").url,
+  ""
+);
 assert.equal(site.education[0].image, "assets/img/institution/zju-cs.png");
 assert.equal(site.education[1].image, "assets/img/institution/ckc.png");
 assert.match(site.education[1].degree, /Chu Kochen Honors College Mixed Class/);
@@ -73,10 +83,12 @@ const js = read("assets/js/main.js");
 assert.ok(js.includes("fetch(path"));
 assert.ok(js.includes("loadYaml('data/site.yml')"));
 assert.ok(js.includes("loadYaml('data/scholar.yml', false)"));
+assert.ok(js.includes("function renderLinkedText"));
 assert.ok(js.includes("function renderLinks"));
 assert.ok(js.includes("function renderScholarMetrics"));
 assert.ok(js.includes("function renderExperienceCards"));
 assert.ok(js.includes("function renderCollaborators"));
+assert.ok(js.includes("function enableGlassHeader"));
 assert.ok(!js.includes("function renderProjects"));
 assert.ok(js.includes("education-card"));
 assert.ok(js.includes("education-logo"));
@@ -90,6 +102,8 @@ const css = read("assets/css/styles.css");
 assert.ok(css.includes("grid-template-columns: minmax(300px, 340px) minmax(0, 1fr) minmax(210px, 250px)"));
 assert.ok(css.includes("@media (max-width: 760px)"));
 assert.ok(css.includes("overflow-x: auto"));
+assert.ok(css.includes("-webkit-overflow-scrolling: touch"));
+assert.ok(css.includes(".site-header.is-scrolled"));
 assert.ok(css.includes(".brand-logo"));
 assert.ok(css.includes(".education-card"));
 assert.ok(css.includes(".education-logo"));
@@ -102,6 +116,9 @@ assert.ok(css.includes("border-radius: 12px"));
 assert.ok(css.includes("grid-template-columns: 280px minmax(0, 1fr)"));
 assert.ok(css.includes("width: 280px"));
 assert.ok(css.includes("height: 158px"));
+assert.ok(css.includes("width: 320px"));
+assert.ok(css.includes("height: 180px"));
+assert.ok(css.includes("max-width: calc(100vw - 64px)"));
 assert.ok(css.includes(".project-card img"));
 assert.ok(css.includes("width: 280px"));
 assert.ok(css.includes("object-fit: contain"));

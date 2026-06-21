@@ -27,6 +27,35 @@
       .replaceAll("'", '&#039;');
   }
 
+  function renderLinkedText(value, linkMap) {
+    const source = text(value);
+    const entries = Object.entries(linkMap || {})
+      .filter(([, url]) => url)
+      .sort((a, b) => b[0].length - a[0].length);
+    if (entries.length === 0) return escapeHtml(source);
+
+    let output = '';
+    let index = 0;
+    while (index < source.length) {
+      let nextMatch = null;
+      for (const [label, url] of entries) {
+        const found = source.indexOf(label, index);
+        if (found === -1) continue;
+        if (!nextMatch || found < nextMatch.index || (found === nextMatch.index && label.length > nextMatch.label.length)) {
+          nextMatch = { index: found, label, url };
+        }
+      }
+      if (!nextMatch) {
+        output += escapeHtml(source.slice(index));
+        break;
+      }
+      output += escapeHtml(source.slice(index, nextMatch.index));
+      output += `<a href="${escapeHtml(nextMatch.url)}" target="_blank" rel="noopener">${escapeHtml(nextMatch.label)}</a>`;
+      index = nextMatch.index + nextMatch.label.length;
+    }
+    return output;
+  }
+
   function attrs(items) {
     return Object.entries(items)
       .filter(([, value]) => value !== undefined && value !== null && value !== '')
@@ -132,7 +161,7 @@
 
   function renderAbout(data) {
     const paragraphs = (data.about.paragraphs || [])
-      .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+      .map((paragraph) => `<p>${renderLinkedText(paragraph, data.about.links)}</p>`)
       .join('');
     return renderSection('about', 'About', `<div class="prose">${paragraphs}</div>`);
   }
@@ -293,12 +322,23 @@
     target.scrollIntoView({ behavior, block: 'start' });
   }
 
+  function enableGlassHeader() {
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    const update = () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 12);
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  }
+
   async function init() {
     const app = document.getElementById('app');
     try {
       const data = await loadSiteData();
       app.innerHTML = renderSite(data);
       enableSmoothAnchors();
+      enableGlassHeader();
       requestAnimationFrame(() => scrollToCurrentHash());
     } catch (error) {
       console.error(error);
