@@ -1,8 +1,17 @@
 (function () {
-  async function loadSiteData() {
-    const response = await fetch('data/site.yml', { cache: 'no-cache' });
+  async function loadYaml(path, required = true) {
+    const response = await fetch(path, { cache: 'no-cache' });
+    if (!response.ok && !required) return null;
     if (!response.ok) throw new Error(`Failed to load site data: ${response.status}`);
     return jsyaml.load(await response.text());
+  }
+
+  async function loadSiteData() {
+    const [site, scholar] = await Promise.all([
+      loadYaml('data/site.yml'),
+      loadYaml('data/scholar.yml', false)
+    ]);
+    return { ...site, scholar };
   }
 
   function text(value) {
@@ -34,7 +43,10 @@
   }
 
   function renderLinks(links) {
-    return Object.entries(links || {})
+    const order = ['paper', 'code', 'project', 'demo', 'video', 'bibtex'];
+    return order
+      .filter((label) => links && Object.prototype.hasOwnProperty.call(links, label))
+      .map((label) => [label, links[label]])
       .filter(([, url]) => Boolean(url))
       .map(([label, url]) => `<a class="pill-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(formatLabel(label))}</a>`)
       .join('');
@@ -63,6 +75,27 @@
     return [...contact, ...profileLinks].join('');
   }
 
+  function renderScholarMetrics(scholar) {
+    if (!scholar || !scholar.metrics) return '';
+    const metrics = [
+      ['Citations', scholar.metrics.citations],
+      ['h-index', scholar.metrics.h_index],
+      ['i10-index', scholar.metrics.i10_index]
+    ].filter(([, value]) => value !== undefined && value !== null && value !== '');
+    if (metrics.length === 0) return '';
+    const items = metrics.map(([label, value]) => `
+      <span>
+        <strong>${escapeHtml(value)}</strong>
+        <em>${escapeHtml(label)}</em>
+      </span>
+    `).join('');
+    return `
+      <a class="scholar-metrics" href="${escapeHtml(scholar.profile_url || '#')}" target="_blank" rel="noopener" aria-label="Google Scholar metrics">
+        ${items}
+      </a>
+    `;
+  }
+
   function renderProfile(data) {
     const profile = data.profile;
     const tags = (data.about.tags || [])
@@ -78,6 +111,7 @@
           <p class="headline">${escapeHtml(profile.headline)}</p>
           <p class="location">${escapeHtml(profile.location)}</p>
           <div class="profile-links">${renderProfileLinks(profile)}</div>
+          ${renderScholarMetrics(data.scholar)}
           <div class="tag-list">${tags}</div>
         </div>
       </aside>
@@ -152,41 +186,22 @@
     return renderSection('publications', 'Publications', cards);
   }
 
-  function renderProjects(projects) {
-    const cards = (projects || []).map((project) => {
-      const linkHtml = renderLinks(project.links);
+  function renderExperienceCards(experience) {
+    const cards = (experience || []).map((entry) => {
+      const linkHtml = renderLinks(entry.links);
       return `
         <article class="project-card">
-          <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.image_alt || project.title)}">
+          <img src="${escapeHtml(entry.image)}" alt="${escapeHtml(entry.image_alt || entry.title)}">
           <div class="card-body">
-            <p class="venue">${escapeHtml(project.period)}</p>
-            <h3>${escapeHtml(project.title)}</h3>
-            <p class="summary">${escapeHtml(project.summary)}</p>
+            <p class="venue">${escapeHtml(entry.period)}</p>
+            <h3>${escapeHtml(entry.title)}</h3>
+            <p class="summary">${escapeHtml(entry.summary)}</p>
             ${linkHtml ? `<div class="link-row">${linkHtml}</div>` : ''}
           </div>
         </article>
       `;
     }).join('');
-    return renderSection('projects', 'Projects', cards);
-  }
-
-  function renderExperience(experience) {
-    const items = (experience || []).map((entry) => {
-      const bullets = (entry.bullets || [])
-        .map((bullet) => `<li>${escapeHtml(bullet)}</li>`)
-        .join('');
-      return `
-        <article class="timeline-item">
-          <div>
-            <p class="venue">${escapeHtml(entry.period)}</p>
-            <h3>${escapeHtml(entry.role)}</h3>
-            <p class="meta">${escapeHtml(entry.organization)} · ${escapeHtml(entry.location)}</p>
-          </div>
-          <ul>${bullets}</ul>
-        </article>
-      `;
-    }).join('');
-    return renderSection('experience', 'Experience', items);
+    return renderSection('experience', 'Experience', cards);
   }
 
   function renderEducation(education) {
@@ -218,6 +233,16 @@
     return renderSection('honors', 'Honors', `<ul class="honor-list">${items}</ul>`);
   }
 
+  function renderCollaborators(collaborators) {
+    const items = (collaborators || []).map((collaborator) => `
+      <li>
+        ${collaborator.url ? `<a href="${escapeHtml(collaborator.url)}" target="_blank" rel="noopener">${escapeHtml(collaborator.name)}</a>` : `<span>${escapeHtml(collaborator.name)}</span>`}
+        ${collaborator.note ? `<em>${escapeHtml(collaborator.note)}</em>` : ''}
+      </li>
+    `).join('');
+    return renderSection('collaborators', 'Collaborators', `<ul class="collaborator-list">${items}</ul>`);
+  }
+
   function renderCv(resume) {
     return renderSection('cv', 'Resume / CV', `
       <div class="cv-panel">
@@ -238,9 +263,9 @@
           ${renderAbout(data)}
           ${renderNews(data.news, 'mobile-news')}
           ${renderPublications(data.publications)}
-          ${renderProjects(data.projects)}
-          ${renderExperience(data.experience)}
+          ${renderExperienceCards(data.experience)}
           ${renderEducation(data.education)}
+          ${renderCollaborators(data.collaborators)}
           ${renderHonors(data.honors)}
           ${renderCv(data.resume)}
         </main>

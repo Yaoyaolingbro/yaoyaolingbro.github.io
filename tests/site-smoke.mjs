@@ -9,13 +9,26 @@ vm.createContext(yamlContext);
 vm.runInContext(read("assets/vendor/js-yaml.min.js"), yamlContext);
 const yaml = yamlContext.jsyaml;
 const site = yaml.load(read("data/site.yml"));
+const scholar = yaml.load(read("data/scholar.yml"));
+const siteSchema = JSON.parse(read("data/site.schema.json"));
+const vscodeSettings = JSON.parse(read(".vscode/settings.json"));
 
 assert.equal(site.profile.name, "Zongze Du");
-assert.match(site.profile.headline, /Multimodal AI/);
+assert.ok(site.profile.headline.length > 0);
+assert.ok(!read("data/site.yml").includes("core CUDA programmer"));
+assert.match(site.about.paragraphs.join(" "), /high-performance profiling and optimization/);
+assert.ok(scholar.metrics.citations >= 0);
+assert.ok(scholar.metrics.h_index >= 0);
+assert.ok(scholar.metrics.i10_index >= 0);
+assert.match(scholar.profile_url, /scholar\.google\.com\/citations\?user=wy0YRHUAAAAJ/);
+assert.equal(siteSchema.title, "Personal Website Content");
+assert.equal(vscodeSettings["yaml.schemas"]["./data/site.schema.json"], "data/site.yml");
 assert.ok(site.resume.english.endsWith("Zongze_Du_CV.pdf"));
 assert.ok(site.resume.chinese.endsWith("Zongze_Du_CV_zh.pdf"));
 assert.ok(site.publications.length >= 2);
-assert.ok(site.projects.length >= 2);
+assert.ok(site.experience.length >= 2);
+assert.ok(!Object.prototype.hasOwnProperty.call(site, "projects"));
+assert.ok(site.collaborators.length >= 6);
 assert.equal(site.education[0].image, "assets/img/institution/zju-cs.png");
 assert.equal(site.education[1].image, "assets/img/institution/ckc.png");
 assert.match(site.education[1].degree, /Chu Kochen Honors College Mixed Class/);
@@ -29,16 +42,16 @@ assert.equal(
   "ECCV 2026"
 );
 assert.ok(!site.news.some((item) => item.text.includes("FrontierX")));
-assert.ok(!site.projects.some((project) => project.title.includes("FrontierX")));
+assert.ok(!site.experience.some((entry) => entry.title.includes("FrontierX")));
 assert.equal(
-  site.projects.find((project) => project.title.includes("AIRA")).image,
+  site.experience.find((entry) => entry.title.includes("AIRA")).image,
   "assets/img/projects/aira.png"
 );
 const airaPng = fs.readFileSync("assets/img/projects/aira.png");
 assert.equal(airaPng.subarray(1, 4).toString("ascii"), "PNG");
 assert.equal(airaPng[25], 6, "AIRA logo should use an RGBA PNG with transparency");
 assert.equal(
-  site.projects.find((project) => project.title.includes("High-Performance Computing")).image,
+  site.experience.find((entry) => entry.title.includes("High-Performance Computing")).image,
   "assets/img/projects/zjusct-logo.png"
 );
 assert.ok(fs.existsSync("assets/img/projects/zjusct-logo.png"));
@@ -48,16 +61,23 @@ for (const dir of ["assets/img/publications", "assets/img/projects"]) {
 }
 
 const html = read("index.html");
-for (const id of ["about", "publications", "projects", "experience", "education", "honors", "cv"]) {
+for (const id of ["about", "publications", "experience", "education", "collaborators", "honors", "cv"]) {
   assert.ok(html.includes(`href="#${id}"`), `index.html should link to #${id}`);
 }
+assert.ok(!html.includes('href="#projects"'));
 assert.ok(html.includes("assets/img/institution/zju-cs.png"));
 assert.ok(html.includes("assets/vendor/js-yaml.min.js"));
 assert.ok(html.includes("assets/js/main.js"));
 
 const js = read("assets/js/main.js");
-assert.ok(js.includes("fetch('data/site.yml'"));
+assert.ok(js.includes("fetch(path"));
+assert.ok(js.includes("loadYaml('data/site.yml')"));
+assert.ok(js.includes("loadYaml('data/scholar.yml', false)"));
 assert.ok(js.includes("function renderLinks"));
+assert.ok(js.includes("function renderScholarMetrics"));
+assert.ok(js.includes("function renderExperienceCards"));
+assert.ok(js.includes("function renderCollaborators"));
+assert.ok(!js.includes("function renderProjects"));
 assert.ok(js.includes("education-card"));
 assert.ok(js.includes("education-logo"));
 assert.ok(js.includes("function renderNewsAside"));
@@ -74,6 +94,8 @@ assert.ok(css.includes(".brand-logo"));
 assert.ok(css.includes(".education-card"));
 assert.ok(css.includes(".education-logo"));
 assert.ok(css.includes(".education-list"));
+assert.ok(css.includes(".scholar-metrics"));
+assert.ok(css.includes(".collaborator-list"));
 assert.ok(css.includes(".desktop-news"));
 assert.ok(css.includes(".mobile-news"));
 assert.ok(css.includes("border-radius: 12px"));
@@ -83,5 +105,11 @@ assert.ok(css.includes("height: 158px"));
 assert.ok(css.includes(".project-card img"));
 assert.ok(css.includes("width: 280px"));
 assert.ok(css.includes("object-fit: contain"));
+
+const scholarScript = read("scripts/update-scholar.mjs");
+assert.ok(scholarScript.includes("scholar.google.com/citations?user=wy0YRHUAAAAJ"));
+assert.ok(scholarScript.includes("parseMetrics"));
+const scholarWorkflow = read(".github/workflows/update-scholar.yml");
+assert.ok(scholarWorkflow.includes("node scripts/update-scholar.mjs"));
 
 console.log("site smoke checks passed");

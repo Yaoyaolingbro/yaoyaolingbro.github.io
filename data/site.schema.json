@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Personal Website Content",
+  "description": "Permissive schema for the YAML-driven personal homepage content file. It prevents generic YAML schema false positives in editors while keeping YAML syntax validation active.",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "profile": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "resume": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "about": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "news": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "publications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "experience": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "honors": {
+      "type": "array"
+    }
+  }
+}

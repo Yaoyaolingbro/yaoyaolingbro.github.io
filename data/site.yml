@@ -1,16 +1,17 @@
+# yaml-language-server: $schema=./site.schema.json
+
 profile:
   name: Zongze Du
-  headline: AI Research Engineer | Multimodal AI, Embodied Intelligence, Builder
+  headline: AI Research Engineer | LLM Agents, Multimodal Learning, Spatial Intelligence
   photo: assets/img/profile.jpg
   photo_alt: Portrait of Zongze Du
   location: Hangzhou, China
   email: Duzz816@163.com
-  website: https://yaoyaolingbro.github.io
   links:
     - label: GitHub
       url: https://github.com/Yaoyaolingbro
     - label: Google Scholar
-      url: ""
+      url: https://scholar.google.com/citations?user=wy0YRHUAAAAJ
 
 resume:
   english: assets/files/Zongze_Du_CV.pdf
@@ -18,19 +19,24 @@ resume:
 
 about:
   paragraphs:
-    - I am an incoming PhD student at Zhejiang University CAD&CG Lab, advised by Prof. Chunhua Shen and Prof. Hao Chen. My work sits at the intersection of multimodal reasoning, embodied intelligence, and video generation.
-    - Beyond research, I founded AIRA at Zhejiang University and work as a core CUDA programmer at ZJUSCT. I am interested in turning frontier AI research into real systems, tools, and industry-facing products.
+    - I am an incoming PhD student at Zhejiang University CAD&CG Lab, advised by Prof. Chunhua Shen and Prof. Hao Chen. My work sits at the intersection of multimodal reasoning, spatial intelligence.
+    - Beyond research, I founded AIRA at Zhejiang University and work on high-performance profiling and optimization at ZJUSCT. I am interested in turning frontier AI research into real systems, tools, and industry-facing products.
   tags:
     - Multimodal Reasoning
-    - Embodied AI
-    - Video Generation
+    - Physical AI
     - High-Performance Computing
 
 news:
-  - date: 2025.12
-    text: Omni-R1 was accepted to NeurIPS 2025.
-  - date: 2025.06
-    text: Represented ZJU at ISC25 Student Cluster Competition in Hamburg.
+  - date: 2026.5
+    text: Three papers about multimodal reasoning and reinforcement learning accepted to NeurIPS 2025, ICML 2026 and ECCV 2026.
+  - date: 2025.10
+    text: Accepted to CVPR 2026 with a high-fidelity face swapping paper, LivingSwap.
+  - date: 2025.9
+    text: Accepted to PhD program at Zhejiang University CAD&CG Lab, advised by Prof. Chunhua Shen and Prof. Hao Chen.
+  - date: 2025.1
+    text: Founded AIRA, an AI research community and learning platform at Zhejiang University.
+  - date: 2023.9
+    text: Worked on high-performance profiling and optimization at ZJUSCT.
 
 publications:
   - title: "Agentic Evolution with Adaptive OCR Memory"
@@ -50,7 +56,10 @@ publications:
     image_alt: Agentic Evolution with Adaptive OCR Memory paper figure
     summary: An agentic evolution framework for adaptive OCR memory, where an assistant edits visual memory artifacts and verifies improvements without updating the task model.
     note: "* Equal contribution"
-    links: {}
+    links:
+      paper: ""
+      code: ""
+      project: ""
   - title: "Preserving Source Video Realism: High-Fidelity Face Swapping for Cinematic Quality"
     authors:
       - Zekai Luo
@@ -68,7 +77,10 @@ publications:
     image: assets/img/publications/livingswap.png
     image_alt: LivingSwap paper figure
     summary: A high-fidelity face swapping pipeline focused on preserving source video realism for cinematic-quality generation.
-    links: {}
+    links:
+      paper: ""
+      code: ""
+      project: ""
   - title: "Omni-R1: Reinforcement Learning for Omnimodal Reasoning via Two-System Collaboration"
     authors:
       - Hao Zhong*
@@ -86,7 +98,10 @@ publications:
     image_alt: Omni-R1 paper figure
     summary: A reinforcement learning framework for omnimodal reasoning built around two-system collaboration.
     note: "* Equal contribution"
-    links: {}
+    links:
+      paper: ""
+      code: ""
+      project: ""
   - title: "ACTIVE-O3: Empowering MLLMs with Active Perception via Pure Reinforcement Learning"
     authors:
       - Muzhi Zhu
@@ -106,7 +121,10 @@ publications:
     image: assets/img/publications/active-o3.png
     image_alt: ACTIVE-O3 paper figure
     summary: A reinforcement learning approach that encourages multimodal models to actively perceive and gather visual evidence.
-    links: {}
+    links:
+      paper: ""
+      code: ""
+      project: ""
   - title: "Metric-Bench: Exploring In-context Spatial Metric Reasoning in VLMs for Indoor Scenes"
     authors:
       - Yuling Xi
@@ -127,9 +145,12 @@ publications:
     image: assets/img/publications/metric-bench.png
     image_alt: Metric-Bench paper figure
     summary: A benchmark for testing how vision-language models reason about indoor spatial metrics from context.
-    links: {}
+    links:
+      paper: ""
+      code: ""
+      project: ""
 
-projects:
+experience:
   - title: AIRA Research Community and Learning Platform
     period: 2023.10 - Present
     image: assets/img/projects/aira.png
@@ -144,24 +165,6 @@ projects:
     summary: Worked on HPL, HPCG, AlphaFold CPU inference, and C++ climate prediction optimization across ASC 2024, ASC 2025, and ISC25.
     links:
       project: https://www.zjusct.io/
-
-experience:
-  - organization: ZJU CAD&CG Lab
-    role: Research Assistant
-    period: 2024.01 - Present
-    location: Hangzhou, China
-    bullets:
-      - Led Agentic Evolution with Adaptive OCR Memory, framing agent history as editable visual memory artifacts and designing a heuristic learning loop for failure diagnosis, layout adjustment, and verification.
-      - Contributed to the Omni-R1 multimodal reinforcement learning pipeline, including training components and reward shaping for omnimodal reasoning under a two-system collaboration framework.
-      - Built the LivingSwap face-swapping pipeline on a VACE video generation backbone, focusing on source-video realism preservation for cinematic-quality output.
-  - organization: ZJUSCT & AIRA, Zhejiang University
-    role: Founder & Team Lead
-    period: 2023.10 - Present
-    location: Hangzhou, China
-    bullets:
-      - Founded AIRA, secured Zhejiang University institutional support, and built an AI research community connecting students with frontier research, industry partnerships, and collaborative learning.
-      - Established a formal talent development partnership with Huawei's Kunpeng Ascend program and mentored student teams to Huawei ICT National Finals, including a 1st Prize team in the Ascend LLM track.
-      - Served as a core CUDA programmer at ZJUSCT, leading server architecture design and multi-GPU acceleration work while representing Zhejiang University at ASC 2024, ASC 2025, and ISC25.
 
 education:
   - institution: Zhejiang University
@@ -188,3 +191,33 @@ honors:
   - Huawei ICT National Finals 1st Prize, Ascend LLM Track, 2025
   - ASC Student Supercomputer Challenge 2nd Prize, 2024 and 2025
   - ISC Student Cluster Competition Honor Certificate, 2025
+
+collaborators:
+  - name: Chunhua Shen
+    note: Advisor
+  - name: Hao Chen
+    note: Advisor
+  - name: Muzhi Zhu
+    note: Multimodal reasoning
+  - name: Hao Zhong
+    note: Omnimodal reasoning
+  - name: Canyu Zhao
+    note: Active perception
+  - name: Mingyu Liu
+    note: Embodied AI
+  - name: Zheng Huang
+    note: Robot learning
+  - name: Ke Liu
+    note: Agent memory
+  - name: Linhao Zhong
+    note: Agent memory
+  - name: Jiuhe Shu
+    note: Agent memory
+  - name: Yuling Xi
+    note: Spatial reasoning
+  - name: Chenchen Jing
+    note: Video generation
+  - name: Zekai Luo
+    note: Face swapping
+  - name: Wen Wang
+    note: Video generation

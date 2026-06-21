@@ -196,6 +196,47 @@ img {
   overflow-wrap: anywhere;
 }
 
+.scholar-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--ink);
+}
+
+.scholar-metrics:hover {
+  text-decoration: none;
+}
+
+.scholar-metrics span {
+  min-width: 0;
+  padding: 8px 6px;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.scholar-metrics strong,
+.scholar-metrics em {
+  display: block;
+}
+
+.scholar-metrics strong {
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.scholar-metrics em {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -491,6 +532,47 @@ img {
   margin-top: 8px;
 }
 
+.collaborator-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.collaborator-list li {
+  min-width: 0;
+  padding: 9px 10px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(221, 228, 238, 0.85);
+  border-radius: 10px;
+}
+
+.collaborator-list span,
+.collaborator-list a {
+  display: block;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.collaborator-list em {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .education-list {
   display: grid;
   gap: 16px;
@@ -625,6 +707,10 @@ img {
     grid-template-columns: 150px minmax(0, 1fr);
     gap: 18px;
   }
+
+  .collaborator-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 760px) {
@@ -752,6 +838,10 @@ img {
 
   .education-body h3 {
     font-size: 18px;
+  }
+
+  .collaborator-list {
+    grid-template-columns: 1fr;
   }
 
   .cv-panel {
